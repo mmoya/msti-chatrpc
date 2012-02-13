@@ -1,0 +1,7 @@
+*.komodoproject
+chatrpc.h
+chatrpc_*.c
+*.o
+
+chatrpcclient
+chatrpcserver

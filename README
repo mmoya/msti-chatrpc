@@ -1,0 +1,57 @@
+Simple chat application using ONC RPC.
+Practical Exercise 1 of Middleware
+Master STI (http://gsyc.es/master)
+URJC
+
+Copyright (C) 2012 Maykel Moya <mmoya [at] mmoya.org>
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston,
+  MA 02110-1301, USA.
+
+Description
+===========
+Trivial chat application using ONC RPC (http://j.mp/wa6gPT). Server
+uses ~/.chatrpc/chatrpc.sqlite as persistent storage.
+
+Only for demonstrative purposes, security and error management are
+weak. Not intended for real usage.
+
+Exercise guideline at http://j.mp/zi7Hf1 (open with a browser).
+
+Building
+========
+$ sudo apt-get install libsqlite3-0 libsqlite3-dev
+$ make
+
+Launching server
+================
+$ ./chatrpcserver
+
+Using client
+============
+Default <host> is localhost.
+Default <user> is the current user.
+
+Register and saves received passwd in ~/.chatrpc/client.passwd:
+$ ./chatrpcclient [--host <host>] [--user <user>] --register
+
+Send a message to user joe:
+$ ./chatrpcclient [--host <host>] [--user <user>] --send joe "Test message"
+
+Ask server for messages directed to a user (requires authentication):
+$ ./chatrpcclient [--host <host>] [--user <user>] --receive
+
+Request server to delete messages directed to a user (requires authentication):
+$ ./chatprcclient [--host <host>] [--user <user>] --delete
